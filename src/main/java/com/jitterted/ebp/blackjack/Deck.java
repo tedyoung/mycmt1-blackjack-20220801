@@ -9,7 +9,7 @@ public class Deck {
 
     public Deck() {
         List<String> cardValues = List.of("A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K");
-        for (String suit : Suit.SUITS) {
+        for (Suit suit : Suit.values()) {
             for (String cardValue : cardValues) {
                 cards.add(new Card(suit, cardValue));
             }
