@@ -1,15 +1,17 @@
 package com.jitterted.ebp.blackjack;
 
 public enum Suit {
-    SPADES("♠"),
-    DIAMONDS("♦"),
-    HEARTS("♥"),
-    CLUBS("♣");
+    SPADES("♠", false),
+    DIAMONDS("♦", true),
+    HEARTS("♥", true),
+    CLUBS("♣", false);
 
     private final String symbol;
+    private final boolean isRed;
 
-    Suit(String symbol) {
+    Suit(String symbol, boolean isRed) {
         this.symbol = symbol;
+        this.isRed = isRed;
     }
 
     public String symbol() {
@@ -17,6 +19,6 @@ public enum Suit {
     }
 
     boolean isRed() {
-        return "♥♦".contains(symbol());
+        return isRed;
     }
 }
