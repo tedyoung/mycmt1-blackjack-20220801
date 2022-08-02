@@ -31,6 +31,17 @@ public class Hand {
         return handValue;
     }
 
+    void display() {
+        System.out.println(cards.stream()
+                                .map(Card::display)
+                                .collect(Collectors.joining(
+                                        ansi().cursorUp(6).cursorRight(1).toString())));
+    }
+
+    Card faceUpCard() {
+        return cards.get(0);
+    }
+
     private int rawValue() {
         return cards
                 .stream()
@@ -44,14 +55,19 @@ public class Hand {
                 .anyMatch(card -> card.rankValue() == 1);
     }
 
-    void display() {
-        System.out.println(cards.stream()
-                                .map(Card::display)
-                                .collect(Collectors.joining(
-                                       ansi().cursorUp(6).cursorRight(1).toString())));
+    boolean isBusted() {
+        return value() > 21;
     }
 
-    Card faceUpCard() {
-        return cards.get(0);
+    boolean pushes(Hand hand) {
+        return value() == hand.value();
+    }
+
+    boolean beats(Hand hand) {
+        return hand.value() < value();
+    }
+
+    boolean shouldHit() {
+        return value() <= 16;
     }
 }
