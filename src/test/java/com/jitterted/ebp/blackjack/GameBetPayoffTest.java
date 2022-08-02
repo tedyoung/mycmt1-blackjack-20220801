@@ -47,4 +47,16 @@ class GameBetPayoffTest {
                 .isEqualTo(100 - 50 + (50 * 2));
     }
 
+    @Test
+    public void playerWith60Bets20AndLosesThenBalanceIs40() throws Exception {
+        Game game = new Game();
+        game.playerDeposits(60);
+        game.playerBets(20);
+
+        game.playerLoses();
+
+        assertThat(game.playerBalance())
+                .isEqualTo(60 - 20);
+    }
+
 }
