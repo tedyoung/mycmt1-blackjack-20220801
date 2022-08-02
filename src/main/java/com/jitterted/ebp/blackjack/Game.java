@@ -13,6 +13,7 @@ public class Game {
 
     private final Hand dealerHand = new Hand();
     private final Hand playerHand = new Hand();
+    private int playerBalance = 0;
 
     public static void main(String[] args) {
         displayWelcomeMessage();
@@ -161,4 +162,7 @@ public class Game {
         System.out.println(" (" + playerHand.value() + ")");
     }
 
+    public int playerBalance() {
+        return playerBalance;
+    }
 }
