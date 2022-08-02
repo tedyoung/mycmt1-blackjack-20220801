@@ -71,4 +71,16 @@ class GameBetPayoffTest {
                 .isEqualTo(75 - 40 + 40);
     }
 
+    @Test
+    public void playerWith400Bets400WinsBlackjackThenBalanceIs1_000() throws Exception {
+        Game game = new Game();
+        game.playerDeposits(400);
+        game.playerBets(400);
+
+        game.playerWinsBlackjack();
+
+        assertThat(game.playerBalance())
+                .isEqualTo(1_000);
+    }
+
 }
