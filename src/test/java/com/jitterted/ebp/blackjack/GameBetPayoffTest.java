@@ -35,16 +35,16 @@ class GameBetPayoffTest {
                 .isEqualTo(100 - 50);
     }
 
-//    @Test
-//    public void playerWith100BalanceBets50AndWinsThenBalanceIs150() throws Exception {
-//        Game game = new Game();
-//        game.playerDeposits(100);
-//        game.playerBets(50);
-//
-//        game.playerWins();
-//
-//        assertThat(game.playerBalance())
-//                .isEqualTo(100 - 50 + (50 * 2));
-//    }
+    @Test
+    public void playerWith100BalanceBets50AndWinsThenBalanceIs150() throws Exception {
+        Game game = new Game();
+        game.playerDeposits(100);
+        game.playerBets(50);
+
+        game.playerWins();
+
+        assertThat(game.playerBalance())
+                .isEqualTo(100 - 50 + (50 * 2));
+    }
 
 }

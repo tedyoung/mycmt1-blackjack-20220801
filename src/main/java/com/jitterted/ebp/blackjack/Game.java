@@ -181,10 +181,12 @@ public class Game {
         playerBetAmount = betAmount;
     }
 
+    public void playerWins() {
+        playerBalance += playerBetAmount * 2;
+    }
 
-//    public void playerWins() {
-//        playerBalance +=
-//    }
+
+
 }
 
 
