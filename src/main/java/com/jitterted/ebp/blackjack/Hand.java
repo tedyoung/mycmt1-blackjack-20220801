@@ -9,24 +9,39 @@ import static org.fusesource.jansi.Ansi.ansi;
 public class Hand {
     private final List<Card> cards = new ArrayList<>();
 
+    public Hand() {
+    }
+
+    public Hand(List<Card> cards) {
+        this.cards.addAll(cards);
+    }
+
     void drawCard(Deck deck) {
         cards.add(deck.draw());
     }
 
     int value() {
-        int handValue = cards
-                .stream()
-                .mapToInt(Card::rankValue)
-                .sum();
+        int handValue = rawValue();
 
         // if the total hand value <= 11, then count the Ace as 11 by adding 10
-        if (cards
-                .stream()
-                .anyMatch(card -> card.rankValue() == 1) && handValue < 11) {
+        if (hasAce() && handValue < 11) {
             handValue += 10;
         }
 
         return handValue;
+    }
+
+    private int rawValue() {
+        return cards
+                .stream()
+                .mapToInt(Card::rankValue)
+                .sum();
+    }
+
+    private boolean hasAce() {
+        return cards
+                .stream()
+                .anyMatch(card -> card.rankValue() == 1);
     }
 
     void display() {
