@@ -35,7 +35,6 @@ class GameBetPayoffTest {
                 .isEqualTo(100 - 50);
     }
 
-
 //    @Test
 //    public void playerWith100BalanceBets50AndWinsThenBalanceIs150() throws Exception {
 //        Game game = new Game();
