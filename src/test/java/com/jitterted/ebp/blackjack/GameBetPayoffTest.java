@@ -14,16 +14,15 @@ class GameBetPayoffTest {
                 .isZero();
     }
 
+    @Test
+    public void playerDeposits25ThenBalanceIs25() throws Exception {
+        Game game = new Game();
 
-//    @Test
-//    public void playerDeposits25ThenBalanceIs25() throws Exception {
-//        Game game = new Game();
-//
-//        game.playerDeposits(25);
-//
-//        assertThat(game.playerBalance())
-//                .isEqualTo(25);
-//    }
+        game.playerDeposits(25);
+
+        assertThat(game.playerBalance())
+                .isEqualTo(25);
+    }
 
 //    @Test
 //    public void playerWith100Bets50ThenBalanceIs50() throws Exception {

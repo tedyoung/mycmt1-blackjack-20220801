@@ -165,4 +165,8 @@ public class Game {
     public int playerBalance() {
         return playerBalance;
     }
+
+    public void playerDeposits(int amount) {
+        playerBalance += amount;
+    }
 }
